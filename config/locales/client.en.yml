@@ -3,7 +3,7 @@ en:
     admin:
       site_settings:
         categories:
-          TODO_plugin_name: "Plugin Name"
+          discourse_anon_usernames: "Discourse Anon Usernames"
   js:
-    discourse_plugin_name:
+    discourse_anon_usernames:
       placeholder: placeholder

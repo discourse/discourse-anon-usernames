@@ -1,4 +1,4 @@
-TODO_plugin_name:
-  plugin_name_enabled:
+discourse_anon_usernames:
+  discourse_anon_usernames_enabled:
     default: false
     client: true

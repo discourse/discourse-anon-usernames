@@ -1,4 +1,4 @@
-# **Plugin Name** Plugin
+# **Discourse Anon Usernames** Plugin
 
 **Plugin Summary**
 
