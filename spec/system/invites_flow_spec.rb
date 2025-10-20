@@ -5,7 +5,9 @@ RSpec.describe "User invite flow" do
     SiteSetting.discourse_anon_usernames_enabled = true
 
     SiteSetting.full_name_requirement = "required_at_signup"
+    SiteSetting.random_words_list = "Apple|Grape|Orange"
   end
+
   let(:topic) { Fabricate(:topic) }
   let(:invite) { Invite.generate(topic.user, email: "john@discourse.org", topic: topic) }
   let(:invite_form) { PageObjects::Pages::DiscourseAnonUsernames::InviteFormPage.new }

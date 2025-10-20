@@ -12,16 +12,23 @@ export default class RandomizerButton extends Component {
     return this.siteSettings.random_words_list.split("|") || [];
   }
 
+  fetchRandomWord() {
+    if (this.randomWordsList.length === 0) {
+      return "";
+    }
+    return this.randomWordsList[
+      Math.floor(Math.random() * this.randomWordsList.length)
+    ];
+  }
+
   @action
   async generate() {
     const randomizeFrom = getFirstName(this.args.randomizeFrom);
-    const color =
-      this.randomWordsList[
-        Math.floor(Math.random() * this.randomWordsList.length)
-      ];
+    const randomWord = this.fetchRandomWord();
+
     this.args.onGenerate({
       target: {
-        value: randomizeFrom + color + Math.floor(Math.random() * 1000),
+        value: randomizeFrom + randomWord + Math.floor(Math.random() * 1000),
       },
     });
   }
