@@ -7,5 +7,5 @@ discourse_anon_usernames:
     client: true
   random_words_list:
     type: list
-    default: "Apple|Grape|Orange|Pineapple|Fig"
+    default: "Apple|Grape|Orange"
     client: true
