@@ -1,1 +1,4 @@
 en:
+    discourse_anon_usernames:
+      errors:
+        username_invalid: "The chosen username appears to contain your last name. Please choose a different username."

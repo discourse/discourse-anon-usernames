@@ -1,0 +1,37 @@
+@use "lib/viewport";
+
+// change ordering of username input in invite sign up
+.invites-show {
+  .invite-form form {
+    .input-group {
+      &.email-input {
+        order: 1;
+      }
+
+      &.name-input.name-required {
+        order: 2;
+      }
+
+      &.username-input {
+        order: 3;
+      }
+
+      &.password-input {
+        order: 4;
+      }
+    }
+
+    .invitation-cta {
+      order: 5;
+    }
+  }
+}
+
+.input-with-randomizer-btn {
+  display: flex;
+
+  .btn-primary {
+    margin-left: 0.5rem;
+    height: 2.5rem;
+  }
+}
