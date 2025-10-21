@@ -19,14 +19,14 @@ require_relative "lib/discourse_anon_usernames/engine"
 register_asset "stylesheets/anon-usernames.scss"
 
 after_initialize do
-  on(:user_created) do |user|
-    username = user.username
-    last_name = user.name.split(" ").last
+  register_modifier(:username_validator_extras) do |errors, context|
+    next if context.object.nil? || context.object.name.blank?
+
+    username = context.username
+    last_name = context.object.name.split(" ").last
 
     is_leaking_last_name = username.downcase.include?(last_name.downcase)
-    if is_leaking_last_name
-      user.errors.add(:username, I18n.t("discourse_anon_usernames.errors.username_invalid"))
-      raise ActiveRecord::RecordInvalid.new(user)
-    end
+
+    errors << I18n.t("discourse_anon_usernames.errors.username_invalid") if is_leaking_last_name
   end
 end
