@@ -19,7 +19,7 @@ require_relative "lib/discourse_anon_usernames/engine"
 register_asset "stylesheets/anon-usernames.scss"
 
 after_initialize do
-  register_modifier(:username_validator_extras) do |errors, context|
+  register_modifier(:username_validations) do |errors, context|
     next if context.object.nil? || context.object.name.blank?
 
     username = context.username
