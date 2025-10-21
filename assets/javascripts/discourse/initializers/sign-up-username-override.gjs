@@ -9,7 +9,7 @@ export default apiInitializer((api) => {
   const siteSettings = api.container.lookup("service:site-settings");
 
   api.renderInOutlet(
-    "username-input-invite",
+    "invite-username-input",
     <template>
       <div class="input-with-randomizer-btn">
         <input
