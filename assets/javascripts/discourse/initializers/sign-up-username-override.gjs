@@ -13,31 +13,31 @@ export default apiInitializer((api) => {
     <template>
       <div class="input-with-randomizer-btn">
         <input
-          {{on "focusin" @controller.scrollInputIntoView}}
-          {{on "input" @controller.setAccountUsername}}
+          {{on "focusin" @scrollInputIntoView}}
+          {{on "input" @setAccountUsername}}
           type="text"
-          value={{@controller.accountUsername}}
-          class={{valueEntered @controller.accountUsername}}
+          value={{@accountUsername}}
+          class={{valueEntered @accountUsername}}
           id="new-account-username"
           name="username"
           disabled={{siteSettings.only_generated_usernames}}
-          maxlength={{@controller.maxUsernameLength}}
+          maxlength={{@maxUsernameLength}}
           autocomplete="off"
         />
 
         <RandomizerButton
-          @randomizeFrom={{@controller.accountName}}
-          @onGenerate={{@controller.setAccountUsername}}
+          @randomizeFrom={{@accountName}}
+          @onGenerate={{@setAccountUsername}}
         />
 
       </div>
-      {{#unless @controller.accountUsername}}
+      {{#unless @accountUsername}}
         <label class="alt-placeholder" for="new-account-username">
           {{i18n "user.username.title"}}
         </label>
       {{/unless}}
       <InputTip
-        @validation={{@controller.usernameValidation}}
+        @validation={{@usernameValidation}}
         id="username-validation"
       />
     </template>
