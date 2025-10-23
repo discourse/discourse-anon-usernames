@@ -36,10 +36,7 @@ export default apiInitializer((api) => {
           {{i18n "user.username.title"}}
         </label>
       {{/unless}}
-      <InputTip
-        @validation={{@usernameValidation}}
-        id="username-validation"
-      />
+      <InputTip @validation={{@usernameValidation}} id="username-validation" />
     </template>
   );
 });
