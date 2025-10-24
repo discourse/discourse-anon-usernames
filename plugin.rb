@@ -20,10 +20,10 @@ register_asset "stylesheets/anon-usernames.scss"
 
 after_initialize do
   register_modifier(:username_validation) do |errors, context|
-    next if context.user.nil? || context.user.name.blank?
+    next if context.object.nil? || context.object.name.blank?
 
     username = context.username
-    last_name = context.user.name.split(" ").last
+    last_name = context.object.name.split(" ").last
 
     is_leaking_last_name = username.downcase.include?(last_name.downcase)
 
