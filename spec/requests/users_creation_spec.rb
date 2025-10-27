@@ -18,8 +18,7 @@ RSpec.describe "Users Creation" do
         expect(response.status).to eq(412)
         expect(response.body).to include(I18n.t("discourse_anon_usernames.errors.username_invalid"))
 
-        last_user = User.last
-        expect(last_user.username).not_to eq("John_smith")
+        expect(User.last.username).not_to eq("John_smith")
       end
     end
   end
