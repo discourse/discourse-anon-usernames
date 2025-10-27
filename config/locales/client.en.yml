@@ -6,4 +6,7 @@ en:
           discourse_anon_usernames: "Discourse Anon Usernames"
   js:
     discourse_anon_usernames:
-      placeholder: placeholder
+      errors:
+        full_name_required:
+          title: "Full name required"
+          message: "Please enter your full name (first and last) to generate an anonymous username."
