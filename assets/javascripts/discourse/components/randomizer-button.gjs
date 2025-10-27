@@ -34,12 +34,7 @@ export default class RandomizerButton extends Component {
   }
 
   get canGenerate() {
-    return (
-      this.args.randomizeFrom &&
-      this.args.randomizeFrom.length !== 0 &&
-      getFirstName(this.args.randomizeFrom).trim() !==
-        this.args.randomizeFrom.trim()
-    );
+    return this.args.randomizeFrom && this.args.randomizeFrom.length !== 0;
   }
 
   <template>
