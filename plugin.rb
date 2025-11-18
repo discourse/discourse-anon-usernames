@@ -20,7 +20,7 @@ register_asset "stylesheets/anon-usernames.scss"
 
 after_initialize do
   register_modifier(:username_validation) do |errors, context|
-    next if context.object.nil? || context.object.name.blank?
+    next if context.object.nil? || context.object.is_a?(Group) || context.object.name.blank?
 
     username = context.username
     last_name = context.object.name.split(" ").last
