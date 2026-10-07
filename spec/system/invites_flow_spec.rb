@@ -4,6 +4,10 @@ RSpec.describe "User invite flow" do
   before do
     SiteSetting.discourse_anon_usernames_enabled = true
 
+    # These cover the legacy invite form, which the email code flow replaces
+    # when enable_local_logins_via_code is on.
+    SiteSetting.enable_local_logins_via_code = false
+
     SiteSetting.full_name_requirement = "required_at_signup"
     SiteSetting.random_words_list = "Apple|Grape|Orange"
   end
