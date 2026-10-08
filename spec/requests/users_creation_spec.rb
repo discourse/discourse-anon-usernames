@@ -7,6 +7,10 @@ RSpec.describe "Users Creation" do
       let(:topic) { Fabricate(:topic) }
       let(:invite) { Invite.generate(topic.user, email: "foo@discourse.org", topic: topic) }
 
+      # Anonymous invite acceptance requires a verified email in the session
+      # when enable_local_logins_via_code is on
+      before { server_session[:authentication] = { email: invite.email, email_valid: true } }
+
       it "does not allow leaking last names in usernames" do
         put "/invites/show/#{invite.invite_key}.json",
             params: {
